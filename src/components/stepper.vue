@@ -1,7 +1,7 @@
 <template>
   <v-stepper v-model="e6" vertical>
     <v-stepper-step :complete="e6 > 1" step="1">
-        Select an app
+        Select an app: {{ data.legs.length }}
       <small>Summarize if needed</small>
     </v-stepper-step>
 
@@ -44,6 +44,11 @@ export default {
     return {
       e6: 1,
     };
+  },
+  computed: {
+    data() {
+      return this.$store.state.dataStore;
+    },
   },
 };
 </script>
