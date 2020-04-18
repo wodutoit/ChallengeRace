@@ -1,83 +1,109 @@
 <template>
   <v-stepper v-model="e6" vertical>
-    <v-stepper-step :complete="e6 > 1" step="1">
-        {{ clues[0].title }}
-      <small>Let's get this party started!</small>
-    </v-stepper-step>
+    <step
+      :stepnumber="clues[0].id"
+      :type="clues[0].type"
+      :title="clues[0].title"
+      subtitle="Let's get this party started"
+      :done="e6 > clues[0].id"
+      @dones="isDone($event)"
+      :riddle="clues[0].riddle"
+      :answer="clues[0].answer"
+      :hint="clues[0].hint"
+      :imageUrl="clues[0].image"
+      :videoUrl="clues[0].video"></step>
 
-    <v-stepper-content step="1">
-      <v-card class="mx-auto" outlined>
-        <v-list-item three-line>
-          <v-list-item-content>
-            <v-list-item-title class="headline mb-1">{{ clues[0].riddle }}</v-list-item-title>
-            <v-list-item-subtitle  @click="hint0=true">
-              Do you need some Help?
-              <v-icon small color="darken-2">
-              mdi-information-outline
-            </v-icon>
-            </v-list-item-subtitle>
-            <v-card-text class="text--primary">
-              <p v-if="hint0">{{ clues[0].hint }}</p>
-              <br>
-              <v-text-field
-                  v-model="answerInput[0]"
-                  solo
-                  label="Answer:"
-                  clearable
-                ></v-text-field>
-            </v-card-text>
-          </v-list-item-content>
-          <v-list-item-avatar
-              tile
-              size="80"
-            >
-            <v-icon v-if="answerInput[0] === clues[0].answer" large color="green darken-2">
-              mdi-thumb-up
-            </v-icon>
-            </v-list-item-avatar>
-        </v-list-item>
-        <v-card-actions>
-          <v-btn color="primary" @click="e6 = 2" :disabled="answerInput[0] !== clues[0].answer">
-              Continue
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-stepper-content>
+    <step
+      :stepnumber="clues[1].id"
+      :type="clues[1].type"
+      :title="clues[1].title"
+      subtitle=""
+      :done="e6 > clues[1].id"
+      @dones="isDone($event)"
+      :riddle="clues[1].riddle"
+      :answer="clues[1].answer"
+      :hint="clues[1].hint"
+      :imageUrl="clues[1].image"
+      :videoUrl="clues[1].video"></step>
 
-    <v-stepper-step :complete="e6 > 2" step="2">Configure analytics for this app</v-stepper-step>
+      <step
+      :stepnumber="clues[2].id"
+      :type="clues[2].type"
+      :title="clues[2].title"
+      subtitle=""
+      :done="e6 > clues[2].id"
+      @dones="isDone($event)"
+      :riddle="clues[2].riddle"
+      :answer="clues[2].answer"
+      :hint="clues[2].hint"
+      :imageUrl="clues[2].image"
+      :videoUrl="clues[2].video"></step>
 
-    <v-stepper-content step="2">
-      <v-card color="grey lighten-1" class="mb-12" height="200px"></v-card>
-      <v-btn color="primary" @click="e6 = 3">Continue</v-btn>
-      <v-btn text>Cancel</v-btn>
-    </v-stepper-content>
+      <step
+      :stepnumber="clues[3].id"
+      :type="clues[3].type"
+      :title="clues[3].title"
+      subtitle=""
+      :done="e6 > clues[3].id"
+      @dones="isDone($event)"
+      :riddle="clues[3].riddle"
+      :answer="clues[3].answer"
+      :hint="clues[3].hint"
+      :imageUrl="clues[3].image"
+      :videoUrl="clues[3].video"></step>
 
-    <v-stepper-step :complete="e6 > 3" step="3">
-        Select an ad format and name ad unit
-    </v-stepper-step>
+      <step
+      :stepnumber="clues[4].id"
+      :type="clues[4].type"
+      :title="clues[4].title"
+      subtitle=""
+      :done="e6 > clues[4].id"
+      @dones="isDone($event)"
+      :riddle="clues[4].riddle"
+      :answer="clues[4].answer"
+      :hint="clues[4].hint"
+      :imageUrl="clues[4].image"
+      :videoUrl="clues[4].video"></step>
 
-    <v-stepper-content step="3">
-      <v-card color="grey lighten-1" class="mb-12" height="200px"></v-card>
-      <v-btn color="primary" @click="e6 = 4">Continue</v-btn>
-      <v-btn text>Cancel</v-btn>
-    </v-stepper-content>
+      <step
+      :stepnumber="clues[5].id"
+      :type="clues[5].type"
+      :title="clues[5].title"
+      subtitle=""
+      :done="e6 > clues[5].id"
+      @dones="isDone($event)"
+      :riddle="clues[5].riddle"
+      :answer="clues[5].answer"
+      :hint="clues[5].hint"
+      :imageUrl="clues[5].image"
+      :videoUrl="clues[5].video"></step>
 
-    <v-stepper-step step="4">View setup instructions</v-stepper-step>
-    <v-stepper-content step="4">
-      <v-card color="grey lighten-1" class="mb-12" height="200px"></v-card>
-      <v-btn color="primary" @click="e6 = 1">Continue</v-btn>
-      <v-btn text>Cancel</v-btn>
-    </v-stepper-content>
+      <step
+      :stepnumber="clues[6].id"
+      :type="clues[6].type"
+      :title="clues[6].title"
+      subtitle=""
+      :done="e6 > clues[6].id"
+      @dones="isDone($event)"
+      :riddle="clues[6].riddle"
+      :answer="clues[6].answer"
+      :hint="clues[6].hint"
+      :imageUrl="clues[6].image"
+      :videoUrl="clues[6].video"></step>
   </v-stepper>
 </template>
 
 <script>
+import step from './step.vue';
+
 export default {
+  name: 'stepper',
+  components: {
+    step,
+  },
   data() {
     return {
       e6: 1,
-      answerInput: [],
-      hint0: false,
     };
   },
   computed: {
@@ -86,6 +112,11 @@ export default {
     },
   },
   methods: {
+    isDone(finished) {
+      if (finished) {
+        this.e6 += 1;
+      }
+    },
   },
   watch: {
   },
