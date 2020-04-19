@@ -26,8 +26,11 @@
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
                 </iframe>
-                  {{ video }}
                   <br>
+              </div>
+              <div v-if="imageUrl && imageUrl.length > 0">
+                <v-img contain max-height="600" alt="Clue Image"
+                :src="imageUrl"></v-img>
               </div>
               <v-text-field
                   v-model="answerInput"
@@ -35,6 +38,8 @@
                   label="Answer:"
                   clearable
                 ></v-text-field>
+              <br>
+              <h3 v-if="judge && judge.length > 0">Judge: {{ judge }} </h3>
             </v-card-text>
           </v-list-item-content>
           <v-list-item-avatar
@@ -78,6 +83,7 @@ export default {
     videoUrl: String,
     done: Boolean,
     type: String,
+    judge: String,
   },
   components: {
   },
