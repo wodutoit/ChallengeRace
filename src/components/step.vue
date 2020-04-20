@@ -9,16 +9,7 @@
       <v-card class="mx-auto" outlined :color="getColour()" width="100%">
         <v-list-item three-line>
           <v-list-item-content>
-            <v-card-text class="headline mb-1">{{ riddle }}</v-card-text>
-            <v-card-text class="text--primary" @click="showhint=true">
-              Do you need some Help?
-              <v-icon small color="darken-2">
-              mdi-information-outline
-            </v-icon>
-            </v-card-text>
             <v-card-text class="text--primary">
-              <p v-if="showhint">{{ hint }}</p>
-              <br>
               <div class="player-container" v-if="video && video.length > 0">
                 <iframe width="704" height="396"
                 :src="video"
@@ -32,6 +23,17 @@
                 <v-img contain max-height="600" alt="Clue Image"
                 :src="imageUrl"></v-img>
               </div>
+            </v-card-text>
+            <v-card-text class="headline mb-1">{{ riddle }}</v-card-text>
+            <v-card-text class="text--primary" @click="showhint=true">
+              Do you need some Help?
+              <v-icon small color="darken-2">
+              mdi-information-outline
+            </v-icon>
+            <br>
+            <p v-if="showhint">{{ hint }}</p>
+            </v-card-text>
+            <v-card-text >
               <v-text-field
                   v-model="answerInput"
                   solo
