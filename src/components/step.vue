@@ -35,6 +35,8 @@
             </v-card-text>
             <v-card-text >
               <v-text-field
+                  ref="answer"
+                  v-on:keyup.enter="submitanswer"
                   v-model="answerInput"
                   solo
                   label="Answer:"
@@ -101,9 +103,19 @@ export default {
       return this.videoUrl;
     },
   },
+  mounted() {
+    if (this.done) {
+      this.$refs.answer.$el.children[0].focus();
+    }
+  },
   methods: {
+    submitanswer() {
+      if (this.answerInput === this.answer) {
+        this.next();
+      }
+    },
     next() {
-      this.$emit('dones', true);
+      this.$emit('dones', this.stepnumber);
     },
     getColour() {
       let c = 'info';

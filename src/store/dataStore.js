@@ -48,7 +48,7 @@ const dataStore = {
     {
       id: 5,
       title: 'Detour - Can you build it?',
-      riddle: 'Build a tower out of plasic cups in under 30 seconds that is at least 60cm high.',
+      riddle: 'Build a tower out of plasic cups in under 15 seconds that is at least 60cm high.',
       hint: 'go high',
       answer: 'teamwork',
       video: '',
@@ -58,8 +58,8 @@ const dataStore = {
     },
     {
       id: 6,
-      title: 'Detour - a task both team members must complete',
-      riddle: 'Make your way to the pool of destiny. You must work together to cross from the square to the triangle. There is no going around!',
+      title: 'Detour - Let\'s talk to bob',
+      riddle: 'Make your way to the pool of destiny. You must work together to bob for apples, collect 10 apples to get your next password.',
       hint: '',
       answer: 'wet wet wet',
       video: '',
